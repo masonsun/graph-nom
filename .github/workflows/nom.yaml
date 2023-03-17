@@ -1,0 +1,26 @@
+name: nom-nom-nom
+
+on:
+  schedule:
+    # nom every day at 11:30 UTC 
+    - cron: "30 11 * * *"
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: start nom
+        uses: actions/checkout@v3
+
+      - name: do nom
+        run: |
+          echo "# graph-nom" > README.md
+          date "+Date: %D%nTime: %T" >> README.md
+
+      - name: record nom
+        run: |
+          git config --global user.name "Mason Sun"
+          git config --global user.email "masonsun@users.noreply.github.com"
+          git add --all
+          git commit -m "Noms on $(date '+%D')"
+          git push
