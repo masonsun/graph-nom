@@ -2,8 +2,14 @@ name: nom-nom-nom
 
 on:
   schedule:
-    # nom every day at 11:30 UTC 
+    # nom every day at 11:30 UTC
     - cron: "30 11 * * *"
+    # nom more on prime intervals
+    - cron: "0 0 */2 * *"
+    - cron: "0 0 */3 * *"
+    - cron: "0 0 */5 * *"
+    - cron: "0 0 */7 * *"
+    - cron: "0 0 */11 * *"
 
 jobs:
   report:
